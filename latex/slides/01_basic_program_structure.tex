@@ -63,13 +63,16 @@
 	\begin{itemize}
 		\item vim (powerful, but needs getting used to)
 		\item gedit (easy to use, comes with Gnome)
-		\item Notepad(++) (for Windows users)
+		\item Notepad++ (for Windows users)
+		\bigskip
+		\item I will be using \textbf{VS Code} (cross platform)
 	\end{itemize}
 	\bigskip
 	Compilers:
 	\begin{itemize}
 		\item \textbf{gcc}
 		\item clang
+		\item msvc (windows)
 	\end{itemize}
 \end{frame}
 
@@ -90,6 +93,23 @@ $ brew install gcc
 \end{lstlisting}
 	\bigskip
 	... and you're done ;-)
+\end{frame}
+
+\begin{frame}[fragile]{install Homebrew on MacOS}
+	Homebrew is a package manager for mac (and linux)\\
+	\bigskip
+	install basic command line tools:
+	\begin{lstlisting}[numbers=none]
+$ xcode-select --install
+\end{lstlisting}
+	run the install script provided by homebrew
+	\begin{lstlisting}[numbers=none]
+$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+\end{lstlisting}
+	check everything worked:
+	\begin{lstlisting}[numbers=none]
+$ brew --version
+\end{lstlisting}
 \end{frame}
 
 \begin{frame}{gcc for Windows 10 (using \textit{bash})}
