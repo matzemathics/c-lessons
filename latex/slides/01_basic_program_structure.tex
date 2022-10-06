@@ -159,10 +159,11 @@ $ cyg-get gcc-core vim
 	\begin{lstlisting}
 #include <stdio.h>
 
-int main(void) {
+int main(void)
+{
+	// prints 'Hello World!' on the command line
 	printf("Hello World!\n");
-	/* Print "Hello World!" on the
-	   command line */
+
 	return 0;
 }
 \end{lstlisting}
@@ -195,29 +196,28 @@ $ ./a.exe
 \subsection{}
 \begin{frame}[fragile]{A basic program}
 	\begin{columns}[T]
-		\column{.6\textwidth}
+		\column{.65\textwidth}
 		\begin{lstlisting}
 #include <stdio.h>
 
-int main(void) {
-
+int main(void)
+{
+	// prints 'Hello World' on the command line
 	printf("Hello World!\n");
-	/* Print "Hello World!" on the
-	   command line */
 
 	return 0;
 }
 \end{lstlisting}
-		\column{.4\textwidth}
+		\column{.31\textwidth}
 		
 		\ \\$\left. \begin{array}{c}\\\end{array}\right\rbrace $ Preprocessor statements
-		\ \\\ \\$\left. \begin{array}{c}\\\\\\\\\\\\\end{array}\right\rbrace $ Main function
+		\ \\\ \\$\left. \begin{array}{c}\\\\\\\\\\\end{array}\right\rbrace $ Main function
 	\end{columns}
 \end{frame}
 \begin{frame}[fragile]{Preprocessor statements}
 	\begin{itemize}
 		\item Processed before compilation
-		\item Have their own language; start with a \textit{\#}
+		\item Have their own (sub)language; start with a \textit{\#}
 	\end{itemize}
 	\begin{lstlisting}
 #include <stdio.h>
@@ -239,12 +239,11 @@ int main(void) {
 	\end{itemize}
 	\StartLineAt{3}
 	\begin{lstlisting}
-int main(void) {
+int main(void)
 \end{lstlisting}
 	\begin{itemize}
 		\item As a function, \textit{main()} can take parameters and return a value
 		\item Get used to \textit{void} and \textit{int}. They will be explained later
-		\item '$\lbrace$' marks the start of the main function scope
 	\end{itemize}
 \end{frame}
 \begin{frame}[fragile]{The main function scope}
@@ -253,15 +252,18 @@ int main(void) {
 		\item They are processed from top to bottom
 	\end{itemize} \ \\
 	\ \\
-	\StartLineAt{9}
+	\StartLineAt{4}
 	\begin{lstlisting}
+{@\Suppressnumber@
+	// ... program statements ...
+	@\Reactivatenumber{8}@
 	return 0;
 }
 \end{lstlisting}
 	\begin{itemize}
-		\item Last statement; ends main function (and thus the whole program)
+		\item '$\lbrace$' and '$\rbrace$' delimit the main function scope
+		\item \lstinline{return} ends the main function (and thus the whole program)
 		\item \textit{0} tells the OS that everything went right
-		\item '$\rbrace$' marks the end of the main function scope
 	\end{itemize}
 \end{frame}
 \begin{frame}[fragile]{Statements}
@@ -299,7 +301,7 @@ int main(void) {
 	/* Prints "Hello World!"
 	   on the command line */
 \end{lstlisting}
-	Better style of block comments:
+	'Better' (i.e. prettier) style of block comments:
 	\StartLineAt{6}
 	\begin{lstlisting}
 	/*
@@ -334,14 +336,19 @@ main	(        void ){printf("Hello World!\n");
 		\item Indent every statement in the main function by one \textit{tab}\\
 		 or a fixed number of \textit{spaces}
 		\item Decide on a commenting style and stick to it\\
-		(\textit{/* .. */} recommended)
+		(\lstinline{// ...} recommended inside functions, \lstinline{/* ... */} before functions)
 		\item Leave blank lines between different parts of the program
 		\item Use \textit{spaces} and \textit{newlines} consistently
 	\end{itemize}
-	\begin{lstlisting}[showspaces=true,showtabs=true]
-int main(void) {
+	\begin{lstlisting}
+/*
+ * The entry point of this program
+ */
+int main(void)
+{
+	// print 'Hello World!' on the command line
 	printf("Hello World!");
-	/* Prints "Hello World!" */
+
 	return 0;
 }
 \end{lstlisting}

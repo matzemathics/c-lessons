@@ -22,6 +22,7 @@
 \def\StartLineAt#1{\lstset{firstnumber=#1}}
 \let\numberLineAt\StartLineAt
 
+\let\origthelstnumber\thelstnumber
 \makeatletter
 %\def\beamer@verbatimreadframe{%
 %	\begingroup%
@@ -36,3 +37,20 @@
 %	\endlinechar`\^^M \catcode`\^^M=12%
 %	\@ifnextchar\bgroup{\afterassignment\beamer@specialprocessframefirstline\let\beamer@temp=}{\beamer@processframefirstline}}%
 %\makeatother
+
+\newcommand*\Reactivatenumber[1]{%
+  \setcounter{lstnumber}{\numexpr#1-1\relax}
+  \lst@AddToHook{OnNewLine}{%
+   \let\thelstnumber\origthelstnumber%
+   \refstepcounter{lstnumber}%
+  }%
+}
+
+\newcommand*\Suppressnumber{%
+  \lst@AddToHook{OnNewLine}{%
+    \let\thelstnumber\relax%
+     \advance\c@lstnumber-\@ne\relax%
+    }%
+}
+
+\makeatother
